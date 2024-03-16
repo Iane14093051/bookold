@@ -16,5 +16,9 @@ var adschema = new Schema({
 	image:{ type : String, require: true}
 });
 
+adSchema.methods.tosave = function(res) {
+	var user = this;
+};
+
 var ad = mongoose.model('ad', adschema);
 module.exports = {ad};
