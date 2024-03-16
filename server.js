@@ -3,34 +3,26 @@ var express = require('express');
 var {record} = require('./userSchema');
 var {ad} = require('./adschema');
 var bodyParser = require('body-parser');
-var promise = require('promise');
+var Promise = require('promise');
 var Cryptr = require('cryptr'),
     cryptr = new Cryptr('sanjaykumar');
 var jwt = require('jsonwebtoken');
-const admin = require('firebase-admin');
 
-
-// 初始化 Firebase Admin SDK
-const serviceAccount = require('bookold-b66f7-firebase-adminsdk-s6cxj-4395718916.json');
-admin.initializeApp({
-	credential: admin.credential.cert(serviceAccount),
-	databaseURL: "https://bookold-b66f7-default-rtdb.firebaseio.com"
-});
-//mongoose.set('useCreateIndex', true);
-//const PORT = process.env.PORT || 3001;
-const PORT = 3001;
+mongoose.set('useCreateIndex', true);
+const PORT = process.env.PORT || 3001;
 var app = express();
 app.use(bodyParser.json({limit: '50mb'}));
-app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
-//mongoose.Promise = Promise;
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
-//const url = "mongodb://smsk1999:smsk1999@ds139331.mlab.com:39331/bookolx";
-//const url = "mongodb+srv://tsai960818:doJAyEBBlQq4QG7o@cluster0.m9azwis.mongodb.net/";
+mongoose.Promise = Promise;
 
-//mongoose.connect(url,{ useNewUrlParser: true }, function(err){
-	//if(err) throw err;
-	//console.log('successfully connected');
-	//});
+// const url = "mongodb://smsk1999:smsk1999@ds139331.mlab.com:39331/bookolx";
+const url = "mongodb+srv://tsai960818:doJAyEBBlQq4QG7o@cluster0.m9azwis.mongodb.net/";
+
+mongoose.connect(url,{ useNewUrlParser: true }, function(err){
+	if(err) throw err;
+	console.log('successfully connected');
+	});
 
 app.post("/signup", (req, res) => {
 	var data = new record(req.body);
