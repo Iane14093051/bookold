@@ -16,7 +16,7 @@ var adschema = new Schema({
 	image:{ type : String, require: true}
 });
 
-adSchema.methods.tosave = function(res) {
+adschema.methods.tosave = function(res) {
 	var user = this;
 };
 
