@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 
-
 var Schema = mongoose.Schema, _id = Schema.ObjectID;
 
 var adschema = new Schema({
@@ -18,6 +17,11 @@ var adschema = new Schema({
 
 adschema.methods.tosave = function(res) {
 	var user = this;
+	user.save().then(doc => {
+		return res.header('x-auth', token).status(200).send(user);
+	}).catch(err => {
+		return res.status(404).send("try again");
+	});
 };
 
 var ad = mongoose.model('ad', adschema);
