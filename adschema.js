@@ -15,15 +15,7 @@ var adschema = new Schema({
 	image:{ type : String, require: true}
 });
 
-adschema.methods.tosave = function(res) {
-	var user = this;
 
-	user.save().then(doc => {
-		return res.header('x-auth', token).status(200).send(user);
-	}).catch(err => {
-		return res.status(404).send("Try again");
-	});
-};
 
 
 var ad = mongoose.model('ad', adschema);
