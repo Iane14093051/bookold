@@ -108,7 +108,7 @@ app.post("/newad", (req, res) => {
 		if(flag == 1){
 			data.save().then(doc => {
 				
-				return res.status(200).send(data);
+				return res.status(200).send(doc);
 			}).catch(err => {
 				return res.status(500).send("not a valid data");
 			});
