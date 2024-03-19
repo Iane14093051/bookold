@@ -105,7 +105,7 @@ app.post("/newad", (req, res) => {
 	adminverify(token).then((flag) => {
 		if(flag == 1){
 			data.save().then(doc => {
-				return res.status(200).send(doc);
+				return res.status(200).send(data);
 			}).catch(err => {
 				return res.status(500).send("not a valid data");
 			});
