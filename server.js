@@ -15,7 +15,7 @@ app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 mongoose.Promise = Promise;
 
-const url = "mongodb://smsk1999:smsk1999@ds139331.mlab.com:39331/bookolx";
+const url = "mongodb+srv://tsai:jqZn54eicAGwyXrx@cluster0.xmh7nth.mongodb.net/";
 
 mongoose.connect(url,{ useNewUrlParser: true }, function(err){
 	if(err) throw err;
