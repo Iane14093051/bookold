@@ -2,7 +2,6 @@ var mongoose = require('mongoose');
 var jwt = require('jsonwebtoken');
 var _ = require('lodash');
 
-
 var Schema = mongoose.Schema, _id = Schema.ObjectID;
 
 var userSchema = new Schema({
@@ -28,5 +27,5 @@ userSchema.methods.tosave = function(res) {
 };
 
 var record = mongoose.model('record', userSchema);
-module.exports = { record };
+module.exports = {record};
 

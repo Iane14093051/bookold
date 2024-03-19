@@ -1,23 +1,21 @@
-﻿var mongoose = require('mongoose');
+var mongoose = require('mongoose');
 var express = require('express');
 var {record} = require('./userSchema');
 var {ad} = require('./adschema');
 var bodyParser = require('body-parser');
-var Promise = require('promise');
+var promise = require('promise');
 var Cryptr = require('cryptr'),
     cryptr = new Cryptr('sanjaykumar');
 var jwt = require('jsonwebtoken');
-
 mongoose.set('useCreateIndex', true);
 const PORT = process.env.PORT || 3001;
+
 var app = express();
 app.use(bodyParser.json({limit: '50mb'}));
-app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
-
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 mongoose.Promise = Promise;
 
-// const url = "mongodb://smsk1999:smsk1999@ds139331.mlab.com:39331/bookolx";
-const url = "mongodb+srv://tsai960818:doJAyEBBlQq4QG7o@cluster0.m9azwis.mongodb.net/";
+const url = "mongodb://smsk1999:smsk1999@ds139331.mlab.com:39331/bookolx";
 
 mongoose.connect(url,{ useNewUrlParser: true }, function(err){
 	if(err) throw err;

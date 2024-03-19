@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 
-
 var Schema = mongoose.Schema, _id = Schema.ObjectID;
 
 var adschema = new Schema({
