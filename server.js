@@ -102,23 +102,23 @@ function adminverify(token){
 }
 
 app.post("/newad", (req, res) => {
-	//var token = req.header('x-auth');
+	var token = req.header('x-auth');
 	var data = new ad(req.body);
-	//adminverify(token).then((flag) => {
-		//if(flag == 1){
-	data.save();
-			//data.save().then(doc => {
+	adminverify(token).then((flag) => {
+		if(flag == 1){
+
+			data.save().then(doc => {
 				
-			//	return res.status(200).send(doc);
-			//}).catch(err => {
-				//return res.status(500).send("not a valid data");
-			//});
-		//}else{
-		//	return res.status(500).send("Invalid Token");
-		//}
-	//}).catch(err => {
-	//	return res.status(500).send("not a valid token");
-	//});
+				return res.status(200).send(data);
+			}).catch(err => {
+				return res.status(500).send("not a valid data");
+			});
+		}else{
+			return res.status(500).send("Invalid Token");
+		}
+	}).catch(err => {
+		return res.status(500).send("not a valid token");
+	});
 });
 
 app.post("/getallad", (req, res) => {
