@@ -106,12 +106,13 @@ app.post("/newad", (req, res) => {
 	var data = new ad(req.body);
 	//adminverify(token).then((flag) => {
 		//if(flag == 1){
-			data.save().then(doc => {
+	data.save();
+			//data.save().then(doc => {
 				
-				return res.status(200).send(doc);
-			}).catch(err => {
-				return res.status(500).send("not a valid data");
-			});
+			//	return res.status(200).send(doc);
+			//}).catch(err => {
+				//return res.status(500).send("not a valid data");
+			//});
 		//}else{
 		//	return res.status(500).send("Invalid Token");
 		//}
