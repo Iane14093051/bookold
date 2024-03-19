@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 
+
 var Schema = mongoose.Schema, _id = Schema.ObjectID;
 
 var adschema = new Schema({
@@ -14,9 +15,6 @@ var adschema = new Schema({
 	price:{ type : String, require: true},
 	image:{ type : String, require: true}
 });
-
-
-
 
 var ad = mongoose.model('ad', adschema);
 module.exports = {ad};
