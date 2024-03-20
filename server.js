@@ -8,7 +8,7 @@ var Cryptr = require('cryptr'),
     cryptr = new Cryptr('sanjaykumar');
 var jwt = require('jsonwebtoken');
 mongoose.set('useCreateIndex', true);
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 10000;
 
 var app = express();
 app.use(bodyParser.json({limit: '50mb'}));
