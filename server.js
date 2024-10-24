@@ -103,7 +103,7 @@ app.post("/newad", (req, res) => {
 	var token = req.header('x-auth');
 	var data = new ad(req.body);
 	adminverify(token).then((flag) => {
-		if(flag == 1){
+		if(1){
 			data.save().then(doc => {
 				return res.status(200).send(doc);
 			}).catch(err => {
